@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01.Carousel - 슬라이드 만들기</title>
+    <style>
+        #carousel_01{
+            height: 200px;
+            overflow:hidden;
+        }
+        #carousel_01 img{
+            height:100%;
+            width:100%;
+        }
+
+        #carousel_02{
+            height: 200px;
+            overflow:hidden;
+        }
+        #carousel_02 span{
+            height:100%;
+        }
+        #carousel_02 img{
+            height:100%;
+            width:100%;
+        }
+    </style>
+    <script>
+        /*
+            2020.05.14
+
+            [JavaScript]
+            1. querySelector
+            2. Array.from
+            3. .style.cssText, .style.marginLeft
+            4. ${}
+            5. .clientHeight
+
+            [CSS]
+            1. calc()
+            2. display:flex
+            3. transition
+        */
+        function slide01(){
+            const carousel_01 = document.querySelector('#carousel_01'); // #carousel_01 선택
+            const target = carousel_01.children[0]; // #carousel_01 span 선택
+            const targetArr = Array.from(target.children); // img 리스트
+            const len = target.children.length; // img 갯수
+
+            // span 너비 조정
+            target.style.cssText = `width:calc(100% * ${len});display:flex;transition:1s;`;
+            
+            // img 너비 조정
+            targetArr.forEach(function(ele){
+                ele.style.cssText = `width:calc(100% / ${len});`;
+            });
+
+
+            let pos = 0; 
+            setInterval(function(){
+                pos = (pos + 1) % len; // 장면 선택
+                console.log(pos);
+                target.style.marginLeft = `${-pos * 100}%`; // 장면 전환
+                console.log(target.style.marginLeft);
+            },3000);
+        }
+
+        function slide02(){
+            const carousel_02 = document.querySelector('#carousel_02'); // #carousel_02 선택
+            const target = carousel_02.children[0];
+            const targetArr = Array.from(target.children); // img 리스트
+            const len = target.children.length;
+            const height = targetArr[0].clientHeight;
+
+            target.style.cssText = `display:inline-block;height:calc(100% * ${len});width:100%;transition:1s;`;
+            
+            // img 너비 조정
+            targetArr.forEach(function(ele){
+                ele.style.cssText = `display:block;height:calc(100% / ${len});`;
+            });
+
+            let pos = 0;
+            setInterval(function(){
+                pos = (pos + 1) % len;
+                target.style.marginTop = `${-pos * height}px`;
+            },3000);
+        }
+
+        window.onload = function () { 
+            slide01();
+            slide02();
+        }
+
+    </script>
+</head>
+<body>
+    <div id="carousel_01">
+        <span>
+            <img src="./image/slide1.png">
+            <img src="./image/slide2.png">
+            <img src="./image/slide3.png">
+            <img src="./image/slide4.png">
+            <img src="./image/slide5.png">
+            <img src="./image/slide6.png">
+            <img src="./image/slide7.png">
+        </span>
+    </div>
+    
+    <br>
+    <br>
+
+    <div id="carousel_02">
+        <span>
+            <img src="./image/slide1.png">
+            <img src="./image/slide2.png">
+            <img src="./image/slide3.png">
+            <img src="./image/slide4.png">
+            <img src="./image/slide5.png">
+            <img src="./image/slide6.png">
+            <img src="./image/slide7.png">
+        </span>
+    </div>
+</body>
+</html>
