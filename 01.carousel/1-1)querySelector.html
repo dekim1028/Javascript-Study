@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector/querySelectorAll</title>
+
+    <script>
+        window.onload = function(){
+            /* 
+             * 2020.02.31
+             * querySelector 예제
+             */
+            
+            var pTag = document.querySelector(".pTag");
+            console.log(pTag); // result : <p id="pTag1" class="pTag">테스트 1</p>
+
+            var pTag1 = document.querySelector("#pTag1");
+            console.log(pTag1); // result : <p id="pTag1" class="pTag">테스트 1</p>
+
+            var qsInputValue = document.querySelector("div span input[name=qsInput]").value;
+            console.log(qsInputValue); // result : 안녕하세요.
+
+            /* 
+             * 2020.02.31
+             * querySelectorAll 예제
+             */
+            
+            var pTag_All = document.querySelectorAll(".pTag");
+            console.log(pTag_All); // result : NodeList(3) [p#pTag1.pTag, p#pTag2.pTag, p#pTag3.pTag]
+
+            var pTag1_All = document.querySelectorAll("#pTag1");
+            console.log(pTag1_All); // result : NodeList [p#pTag1.pTag]
+
+            var pTag2_All = document.querySelectorAll(".pTag")[1];
+            console.log(pTag2_All); // result : <p id="pTag2" class="pTag">테스트 2</p>
+
+            var pTag2_pTag3 = document.querySelectorAll("#pTag2, #pTag3");
+            console.log(pTag2_pTag3); // result : NodeList(2) [p#pTag2.pTag, p#pTag3.pTag]
+
+            var qsInputValue2 = document.querySelectorAll("div span input[name=qsInput]").value;
+            console.log(qsInputValue2); // result : undefined
+
+            var qsInput = document.querySelectorAll("div span input[name=qsInput]");
+            qsInput.forEach(function(ele){
+                console.log(ele.value); // result : 안녕하세요. 반갑습니다.
+            });
+
+            /* 
+             * 2020.02.31
+             * scope 예제
+             */
+            var select = document.querySelector('.select');
+            var searchInner = select.querySelectorAll(".outer .inner");
+            console.log(searchInner.length); // result : 1 ==> querySelectorAll() 은 탐색 범위 내에서 셀렉터의 마지막 엘리먼트만을 검증한다.
+
+            searchInner = select.querySelectorAll(":scope .outer .inner");
+            console.log(searchInner.length); // result : 0 ==> :scope은 베이스 엘리먼트의 자손에 일치하는 셀렉터만 제한한다.
+        };
+        
+
+    </script>
+
+</head>
+<body>
+    <p id="pTag1" class="pTag">테스트 1</p>
+    <p id="pTag2" class="pTag">테스트 2</p>
+    <p id="pTag3" class="pTag">테스트 3</p>
+    <div>
+        <span id="qsSpan">
+            <input id="qsInput" name="qsInput" type="text" value="안녕하세요.">
+            <input id="qsInput2" name="qsInput" type="text" value="반갑습니다.">
+        </span>
+    </div>
+
+    <div class="outer">
+        <div class="select">
+          <div class="inner">
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
