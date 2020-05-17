@@ -1,0 +1,16 @@
+[TODO List]
+
+[JavaScript]
+1. querySelector (v)
+2. Array.from (v)
+3. .style.cssText, .style.marginLeft (v)
+4. Template literals (v)
+5. .clientHeight
+6. Set
+7. 화살표 함수
+8. ...keys, ...values
+
+[CSS]
+1. calc()
+2. display:flex
+3. transition
