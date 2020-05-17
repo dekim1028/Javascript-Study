@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+
+            /* 
+             * 2020.05.16
+             * .style 예제
+             */
+            document.getElementById("redFont").style.cssText = "color:red;";
+            document.getElementById("test").style.cssText = "color:blue;font-size:25px;";
+
+            document.getElementById("redFont2").style.color = "red";
+            document.getElementById("test2").style.color = "blue";
+            document.getElementById("test2").style.fontSize = "25px";
+
+            document.getElementById("testDiv").style.backgroundColor = "yellow";
+            document.getElementById("testDiv").style.width = "300px";
+            //.style => .setAttribute()
+            document.getElementById("testDiv2").setAttribute("style", "background-color:yellow;width:300px;");
+        }
+    </script>
+</head>
+<body>
+    <p id="redFont">빨간색 글씨</p>
+    <p id="test">테스트 글씨</p>
+
+    <p id="redFont2">빨간색 글씨2</p>
+    <p id="test2">테스트 글씨2</p>
+
+    <div id="testDiv">테스트 Div</div>
+    <div id="testDiv2">테스트 Div2</div>
+</body>
+</html>
