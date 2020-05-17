@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+
+            /* 
+             * 2020.05.17
+             * .clientHeight 예제
+             */
+            console.log(document.getElementById("testDiv").clientHeight); // result : 250
+            console.log(document.getElementById("testDiv2").clientHeight); // result : 300
+
+            console.log(document.getElementById("noScrollDiv").clientHeight); // result : 160
+            console.log(document.getElementById("scrollDiv").clientHeight); // result : 145
+        }
+    </script>
+</head>
+<body>
+    <div id="testDiv" style="background-color:aqua;width:200px;height:250px;">테스트 Div</div>
+    <div id="testDiv2" style="background-color:blue;width:200px;height:300px;margin:20px">테스트 Div</div>
+
+    <div id="noScrollDiv" style="width:200px;height:100px;padding:30px;">
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <div id="scrollDiv" style="width:200px;height:100px;overflow:auto;padding:30px;">
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+        <p>veryveryveryveryveryveryveryveryveryveryveryveryveryverylong</p>
+    </div>
+</body>
+</html>

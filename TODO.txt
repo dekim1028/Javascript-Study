@@ -5,7 +5,7 @@
 2. Array.from (v)
 3. .style.cssText, .style.marginLeft (v)
 4. Template literals (v)
-5. .clientHeight
+5. .clientHeight (v)
 6. Set
 7. 화살표 함수
 8. ...keys, ...values
