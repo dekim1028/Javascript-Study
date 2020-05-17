@@ -13,3 +13,5 @@
 >    1-3) .style 예제
 
 >    1-4) Template literals 예제
+
+>.   Carousel 슬라이드 응용
