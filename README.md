@@ -5,3 +5,6 @@
 
 2020.05.15
 >    1-1) querySelector/querySelectorAll 예제
+
+2020.05.16
+>    1-2) Array.from() 예제
