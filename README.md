@@ -14,4 +14,4 @@
 
 >    1-4) Template literals 예제
 
->.   Carousel 슬라이드 응용
+>    Carousel 슬라이드 응용
