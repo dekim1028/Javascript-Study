@@ -11,6 +11,6 @@
 8. ...keys, ...values
 
 [CSS]
-1. calc()
+1. calc() (v)
 2. display:flex
 3. transition
